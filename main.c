@@ -1,31 +1,44 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef struct{
+
+    float a;
+    unsigned int b;
+    char s[20];
+
+}Porudzbina;
+typedef struct{
+
+    int gosti;
+    char s[20];
+    float apetit;
+
+}Restoran;
+
 int main()
 {
-    int i = 0;
-    char djape[10000];
-    char ime[100];
-    printf("Unesite naziv: ");
-    gets(ime);
-    FILE* dat = fopen(ime, "r+");
-    for(;;){
-    djape[i] = fgetc(dat);
-    if(djape[i]==EOF)
-    break;
-    if (djape[i] >= 'a' && djape[i] <= 'z')
-    djape[i] -= 32;
-    i++;
+    FILE* dat;
+    char filee[25];
+    printf("Unesite ime fajla (ime.txt) : ");
+    gets(filee);
+    dat = fopen(filee,"r");
+    if(dat == NULL){
+        printf("Datoteka nije otvorena !!!");
+        return 0;
     }
-    i=0;
-    fseek(dat,0,SEEK_SET);
-    for(;;){
-    if(djape[i]==EOF)
-    break;
-    fputc(djape[i],dat);
-    i++;
+    Restoran restoran;
+
+    FILE* dat2;
+    dat2 = fopen("Pordzbina.txt","w");
+    if(dat2 == NULL){
+        printf("Datoteka nije otvorena !!!");
+        return 0;
     }
+    Porudzbina ispis;
+
     fclose(dat);
+    fclose(dat2);
 
     return 0;
 }
