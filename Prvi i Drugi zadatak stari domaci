@@ -1,0 +1,77 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int x, sum, curNum;
+
+    for(int i = 100; i <= 999; i++)
+    {
+        sum = 0;
+        x = i;
+
+        while(x > 0)
+        {
+            curNum = x % 10;
+            x /= 10;
+
+            sum += curNum * curNum * curNum;
+        }
+
+        if(sum == i)
+            cout << sum << endl;
+
+    }
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int faktorijal(){
+int broj;
+cin>> broj;
+int i = 1;
+int f = 1;
+while(i<=broj){
+    f *= i;
+    ++i;
+}
+return f;
+}
+
+double koren(){
+double broj;
+cin>> broj;
+double suma = 0;
+for(double i = 1; i<=broj;++i){
+    suma += sqrt(i);
+}
+return suma;
+}
+
+
+int main()
+{
+  printf("%i\n",faktorijal());
+   printf("%.2lf",koren());
+}
